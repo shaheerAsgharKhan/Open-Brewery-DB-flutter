@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:open_brewery/screens/brewery_list_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'package:open_brewery/main.dart';
