@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:intl/intl.dart';
 
 import '../providers/brewery_provider.dart';
 
@@ -12,6 +13,7 @@ class BreweryDetailScreen extends StatelessWidget {
     Color pColor = Theme.of(context).primaryColor;
     final breweryDetails =
         Provider.of<BreweryProvider>(context, listen: false).findById(id);
+
     return Scaffold(
       appBar: AppBar(
         title: Text('${breweryDetails.name}'),
@@ -212,7 +214,7 @@ class BreweryDetailScreen extends StatelessWidget {
                 children: [
                   Text('Updated at: '),
                   Text((breweryDetails.updatedAt != null)
-                      ? breweryDetails.updatedAt
+                      ? formatDate(breweryDetails.updatedAt)
                       : 'null'),
                 ],
               ),
@@ -224,7 +226,7 @@ class BreweryDetailScreen extends StatelessWidget {
                 children: [
                   Text('Created at: '),
                   Text((breweryDetails.createdAt != null)
-                      ? breweryDetails.createdAt
+                      ? formatDate(breweryDetails.createdAt)
                       : 'null'),
                 ],
               ),
@@ -233,6 +235,15 @@ class BreweryDetailScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  formatDate(String date) {
+    DateTime parseDate =
+        new DateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").parse(date);
+    var inputDate = DateTime.parse(parseDate.toString());
+    var outputFormat = DateFormat('MM/dd/yyyy hh:mm a');
+    var outputDate = outputFormat.format(inputDate);
+    return outputDate;
   }
 
   void _launchURL(String url) async =>
