@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../providers/brewery_provider.dart';
 
@@ -193,7 +194,10 @@ class BreweryDetailScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text('Website URl: '),
-                  Flexible(
+                  InkWell(
+                    onTap: () {
+                      _launchURL(breweryDetails.websiteUrl);
+                    },
                     child: Text((breweryDetails.websiteUrl != null)
                         ? breweryDetails.websiteUrl
                         : 'null'),
@@ -230,4 +234,7 @@ class BreweryDetailScreen extends StatelessWidget {
       ),
     );
   }
+
+  void _launchURL(String url) async =>
+      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 }
