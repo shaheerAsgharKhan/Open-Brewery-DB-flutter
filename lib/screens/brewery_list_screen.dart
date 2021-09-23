@@ -32,6 +32,9 @@ class _BreweryListScreenState extends State<BreweryListScreen> {
         title: Center(
             child: Text(
           'Brewery list',
+          style: TextStyle(
+            color: Colors.blue.shade100,
+          ),
           textAlign: TextAlign.center,
         )),
       ),
@@ -45,8 +48,10 @@ class _BreweryListScreenState extends State<BreweryListScreen> {
               padding: EdgeInsets.all(10),
               child: GridView.builder(
                 itemCount: breweryListItems.length,
-                itemBuilder: (ctx, i) => BreweryItem(
-                    breweryListItems[i].id, breweryListItems[i].name),
+                itemBuilder: (ctx, index) => BreweryItem(
+                    breweryListItems[index].id,
+                    breweryListItems[index].name,
+                    index),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   childAspectRatio: 3 / 2,

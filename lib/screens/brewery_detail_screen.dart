@@ -16,7 +16,12 @@ class BreweryDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${breweryDetails.name}'),
+        title: Text(
+          '${breweryDetails.name}',
+          style: TextStyle(
+            color: Colors.blue.shade100,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(

@@ -15,8 +15,21 @@ class MyApp extends StatelessWidget {
       create: (ctx) => BreweryProvider(),
       child: MaterialApp(
         title: 'Open Brewery',
+        themeMode: ThemeMode.dark,
         theme: ThemeData(
-          primaryColor: Colors.pink[900],
+          primaryColor: Colors.blue.shade100,
+          scaffoldBackgroundColor: Colors.blueGrey.shade900,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+          ).apply(
+            bodyColor: Colors.white,
+            displayColor: Colors.blue,
+          ),
         ),
         home: BreweryListScreen(),
       ),
