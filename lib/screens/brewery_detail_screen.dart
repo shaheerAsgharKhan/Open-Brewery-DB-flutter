@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import '../providers/brewery_provider.dart';
 
 class BreweryDetailScreen extends StatelessWidget {
-  final int id;
+  final String id;
   BreweryDetailScreen(this.id);
   @override
   Widget build(BuildContext context) {

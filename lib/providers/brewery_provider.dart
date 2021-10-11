@@ -16,16 +16,17 @@ class BreweryProvider with ChangeNotifier {
       final response = await http.get(url);
       var data = response.body;
       print(data);
-      List<BreweryModel> loadedProducts = [];
+      // List<BreweryModel> loadedProducts = [];
 
-      loadedProducts = breweryModelFromJson(data);
+      _bList = breweryModelFromJson(data);
 
-      _bList = loadedProducts;
+      // _bList = loadedProducts;
+
       notifyListeners();
     } catch (err) {}
   }
 
-  BreweryModel findById(int id) {
+  BreweryModel findById(String id) {
     return _bList.firstWhere((brew) => brew.id == id);
   }
 }

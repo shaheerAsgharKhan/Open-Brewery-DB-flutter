@@ -27,6 +27,7 @@ class _BreweryListScreenState extends State<BreweryListScreen> {
   Widget build(BuildContext context) {
     final breweryList = Provider.of<BreweryProvider>(context);
     final breweryListItems = breweryList.brList;
+
     return Scaffold(
       appBar: AppBar(
         title: Center(

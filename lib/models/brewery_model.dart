@@ -8,13 +8,13 @@ import 'dart:convert';
 List<BreweryModel> breweryModelFromJson(String str) => List<BreweryModel>.from(
     json.decode(str).map((x) => BreweryModel.fromJson(x)));
 
-String breweryModelToJson(List<BreweryModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+// String breweryModelToJson(List<BreweryModel> data) =>
+//     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class BreweryModel {
   BreweryModel({
     this.id,
-    this.obdbId,
+    //this.obdbId,
     this.name,
     this.breweryType,
     this.street,
@@ -33,8 +33,8 @@ class BreweryModel {
     this.createdAt,
   });
 
-  int id;
-  String obdbId;
+  String id;
+  //String obdbId;
   String name;
   String breweryType;
   String street;
@@ -54,7 +54,7 @@ class BreweryModel {
 
   factory BreweryModel.fromJson(Map<String, dynamic> json) => BreweryModel(
         id: json["id"],
-        obdbId: json["obdb_id"],
+        //obdbId: json["obdb_id"],
         name: json["name"],
         breweryType: json["brewery_type"],
         street: json["street"] == null ? null : json["street"],
@@ -75,7 +75,7 @@ class BreweryModel {
 
   Map<String, dynamic> toJson() => {
         "id": id,
-        "obdb_id": obdbId,
+        //"obdb_id": obdbId,
         "name": name,
         "brewery_type": breweryType,
         "street": street == null ? null : street,
